@@ -13,7 +13,7 @@
 global APP_VERSION := "0.7.0"
 global APP_VERSION_NAME := "v" . APP_VERSION
 global APP_NAME := "Polygon"
-global APP_REPO_OWNER := "thesobercoder"
+global APP_REPO_OWNER := "brian-mckim-mpg"
 global APP_REPO_NAME := "polygon"
 global APP_URL := "https://github.com/" . APP_REPO_OWNER . "/" . APP_REPO_NAME
 global APP_FEEDBACK_URL := APP_URL . "/issues/new"
