@@ -250,9 +250,9 @@ Center(*) {
 CenterHD(*) {
   if (GetWindowRectEx(&hWnd, &x, &y, &w, &h, &ofl, &ofr, &oft, &ofb, &r, &l, &t, &b))
   {
-    ;-- Set desired window dimension (80% of work area)
-    rw := Ceil((r - l) * 0.8)
-    rh := Ceil((b - t) * 0.8)
+    ;-- Set desired window dimension (90% of work area, capped at 16:9 ratio)
+    rh := Ceil((b - t) * 0.9)
+    rw := Min(Ceil((r - l) * 0.9), Ceil(rh * 16 / 9))
     ;-- Calculate the center of the current monitor with desired size
     centerX := Ceil(((l + r) - (ofl + ofr)) / 2)
     centerY := Ceil(((t + b) - (ofb + oft)) / 2)
