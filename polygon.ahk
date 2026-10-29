@@ -19,8 +19,10 @@ global APP_URL := "https://github.com/" . APP_REPO_OWNER . "/" . APP_REPO_NAME
 global APP_FEEDBACK_URL := APP_URL . "/issues/new"
 global APP_UPDATE_URL := APP_URL . "/releases/latest"
 global APP_INI_FILE := "polygon.ini"
+global APP_INI_SECTION_GENERAL := "General"
 global APP_INI_SECTION_SHORTCUT := "Shortcut"
 global APP_INI_SECTION_TOAST := "Toast"
+global APP_SETTING_GAP := Number(IniRead(APP_INI_FILE, APP_INI_SECTION_GENERAL, "Gap", "0"))
 global APP_SETTING_ISTOASTENABLED := IniRead(APP_INI_FILE, APP_INI_SECTION_TOAST, "Show", "0") == "1" ? true : false
 global APP_SHORTCUT_CENTER := IniRead(APP_INI_FILE, APP_INI_SECTION_SHORTCUT, "Center", "")
 global APP_SHORTCUT_CENTERHD := IniRead(APP_INI_FILE, APP_INI_SECTION_SHORTCUT, "CenterHD", "")
@@ -248,9 +250,9 @@ Center(*) {
 CenterHD(*) {
   if (GetWindowRectEx(&hWnd, &x, &y, &w, &h, &ofl, &ofr, &oft, &ofb, &r, &l, &t, &b))
   {
-    ;-- Set desired window dimension
-    rw := Min(1920, ((r + ofr) - (l + ofl)))
-    rh := Min(1080, ((b + ofb) - (t + oft)))
+    ;-- Set desired window dimension (80% of work area)
+    rw := Ceil((r - l) * 0.8)
+    rh := Ceil((b - t) * 0.8)
     ;-- Calculate the center of the current monitor with desired size
     centerX := Ceil(((l + r) - (ofl + ofr)) / 2)
     centerY := Ceil(((t + b) - (ofb + oft)) / 2)
@@ -561,7 +563,14 @@ LastFourth(*) {
     Toast("Last Fourth", r, l, t, b)
   }
 }
-WinMoveEx(X := 0, Y := 0, Width := 0, Height := 0, hWnd := 0) {
+WinMoveEx(X := 0, Y := 0, Width := 0, Height := 0, hWnd := 0, ApplyGap := true) {
+  ;-- Apply Gap if enabled
+  if (ApplyGap) {
+    X += APP_SETTING_GAP / 2
+    Y += APP_SETTING_GAP / 2
+    Width -= APP_SETTING_GAP
+    Height -= APP_SETTING_GAP
+  }
   ;-- Restore the window before moving
   WinRestore(hWnd)
   ;-- Move the window to the desired position and dimension
@@ -581,6 +590,11 @@ GetWindowRectEx(&hWindow := 0, &winX := 0, &winY := 0, &winW := 0, &winH := 0, &
     {
       ;-- Get the dimensions of the current monitor
       MonitorGetWorkArea(A_Index, &monLeft, &monTop, &monRight, &monBottom)
+      ;-- Apply gap to monitor work area
+      monLeft += APP_SETTING_GAP / 2
+      monTop += APP_SETTING_GAP / 2
+      monRight -= APP_SETTING_GAP / 2
+      monBottom -= APP_SETTING_GAP / 2
       ;-- Check if the active window is within the current monitor
       if (CheckWindowWithinMonitor(winX, winY, winW, winH, winOffsetLeft, winOffsetRight, winOffsetTop, winOffsetBottom, monRight, monLeft, monTop, monBottom))
       {
