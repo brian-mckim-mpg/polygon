@@ -1,3 +1,11 @@
+## [v0.8.0](https://github.com/brian-mckim-mpg/polygon/compare/v0.7.0...v0.8.0) (2026-10-29)
+
+### Features
+
+- Add configurable window gaps (`Gap` setting under `[General]` in `polygon.ini`)
+- Scale CenterHD to 90% of work area height and constrain to 16:9 aspect ratio
+- Add Full Screen layout and shortcut (<kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>F</kbd>) with `Maximize` alias
+
 ## [v0.7.0](https://github.com/thesobercoder/polygon/compare/v0.6.0...v0.7.0) (2024-08-01)
 
 ### Features
