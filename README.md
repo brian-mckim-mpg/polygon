@@ -2,7 +2,7 @@
 
 A [Mac Rectangle](https://github.com/rxhanson/Rectangle) inspired window manager for Windows 10/11 powered by AutoHotkey.
 
-![Release](https://github.com/thesobercoder/polygon/actions/workflows/release.yml/badge.svg)
+![Release](https://github.com/brian-mckim-mpg/polygon/actions/workflows/release.yml/badge.svg)
 
 > [!NOTE]
 > Polygon is still a work in progress and aims to have 100% feature compatibility with Rectangle.
@@ -15,13 +15,13 @@ Polygon supports Windows 10/11.
 
 ### Installer
 
-You can grab the latest Polygon installer from the latest [release](https://github.com/thesobercoder/polygon/releases/latest). The installer will place a shortcut to your user startup folder to ensure that Polygon start at Windows logon.
+You can grab the latest Polygon installer from the latest [release](https://github.com/brian-mckim-mpg/polygon/releases/latest). The installer will place a shortcut to your user startup folder to ensure that Polygon start at Windows logon.
 
 ### Manual
 
 If you rather want to install Polygon manually, please follow the steps outlined below.
 
-- Download the compiled executable zip file based on your OS architecture from the latest [release](https://github.com/thesobercoder/polygon/releases/latest).
+- Download the compiled executable zip file based on your OS architecture from the latest [release](https://github.com/brian-mckim-mpg/polygon/releases/latest).
 - Extract the `polygon-x[64|86].zip` into a location of your choice.
 - Right click the executable and unblock it if Windows complain about security.
 - Open the user startup folder by running the `shell:startup` command in the run (<kbd>WIN</kbd>+<kbd>R</kbd>) window.
@@ -36,37 +36,78 @@ Here are the shortcuts available in Polygon.
 > [!NOTE]
 > Some of the shortcuts Polygon uses conflicts with Window in-built shortcuts and has been mentioned below. If you want to avoid these conflicts, please use the `polygon.ini` file to configure a different shortcut of your choosing by referring to the AutoHotkey v2 [List of Keys](https://www.autohotkey.com/docs/v2/KeyList.htm) documentation.
 
-| Status             | Shortcut                                    | Layout              | Conflicts       |
-| ------------------ | ------------------------------------------- | ------------------- | --------------- |
-| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>C</kbd> | Center              |
-| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>/</kbd> | Center HD           |                 |
-| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>W</kbd> | Center Half         |                 |
-| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>[</kbd> | Left Half           |                 |
-| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>]</kbd> | Right Half          |                 |
-| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>R</kbd> | Center Two Third    |                 |
-| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>F</kbd> | Full Screen         | Feedback Hub    |
-| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>D</kbd> | First Third         | Virtual Desktop |
-| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>G</kbd> | Last Third          |                 |
-| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>Z</kbd> | Top Left Sixth      |                 |
-| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>X</kbd> | Bottom Left Sixth   |                 |
-| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>V</kbd> | Top Right Sixth     |                 |
-| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>B</kbd> | Bottom Right Sixth  |                 |
-| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>N</kbd> | Top Center Sixth    | Narrator        |
-| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>M</kbd> | Bottom Center Sixth | Magnifier       |
-| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>-</kbd> | Top Half            |                 |
-| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>=</kbd> | Bottom Half         |                 |
-| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>A</kbd> | First Two Thirds    |                 |
-| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>H</kbd> | Last Two Thirds     |                 |
-| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>U</kbd> | Top Left            |                 |
-| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>I</kbd> | Top Right           |                 |
-| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>J</kbd> | Bottom Left         |                 |
-| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>K</kbd> | Bottom Right        |                 |
-| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>;</kbd> | First Fourth        |                 |
-| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>'</kbd> | Second Fourth       |                 |
-| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>,</kbd> | Third Fourth        |                 |
-| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>.</kbd> | Last Fourth         |                 |
-| :construction:     |                                             | Next Display        |                 |
-| :construction:     |                                             | Previous Display    |                 |
+| Status             | Shortcut                                    | Layout                            | Conflicts       |
+| ------------------ | ------------------------------------------- | --------------------------------- | --------------- |
+| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>C</kbd> | Center                            |                 |
+| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>/</kbd> | Center HD (90% height, 16:9 ratio)|                 |
+| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>W</kbd> | Center Half                       |                 |
+| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>[</kbd> | Left Half                         |                 |
+| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>]</kbd> | Right Half                        |                 |
+| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>R</kbd> | Center Two Third                  |                 |
+| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>F</kbd> | Full Screen                       | Feedback Hub    |
+| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>D</kbd> | First Third                       | Virtual Desktop |
+| :white_check_mark: | _Configurable_                              | Center Third                      |                 |
+| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>G</kbd> | Last Third                        |                 |
+| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>Z</kbd> | Top Left Sixth                    |                 |
+| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>X</kbd> | Bottom Left Sixth                 |                 |
+| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>V</kbd> | Top Right Sixth                   |                 |
+| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>B</kbd> | Bottom Right Sixth                |                 |
+| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>N</kbd> | Top Center Sixth                  | Narrator        |
+| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>M</kbd> | Bottom Center Sixth               | Magnifier       |
+| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>-</kbd> | Top Half                          |                 |
+| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>=</kbd> | Bottom Half                       |                 |
+| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>A</kbd> | First Two Thirds                  |                 |
+| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>H</kbd> | Last Two Thirds                   |                 |
+| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>U</kbd> | Top Left                          |                 |
+| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>I</kbd> | Top Right                         |                 |
+| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>J</kbd> | Bottom Left                       |                 |
+| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>K</kbd> | Bottom Right                      |                 |
+| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>;</kbd> | First Fourth                      |                 |
+| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>'</kbd> | Second Fourth                     |                 |
+| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>,</kbd> | Third Fourth                      |                 |
+| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>.</kbd> | Last Fourth                       |                 |
+| :construction:     |                                             | Next Display                      |                 |
+| :construction:     |                                             | Previous Display                  |                 |
+
+## Configuration
+
+Polygon is configured using the `polygon.ini` file located alongside the executable.
+
+### Window Gaps
+
+```ini
+[General]
+Gap=10
+```
+
+- **`Gap`**: Sets the gap (in pixels) applied between positioned windows and monitor edges. Defaults to `10`. Set to `0` to disable window gaps.
+
+### Shortcuts
+
+```ini
+[Shortcut]
+Center="^#c"
+FullScreen="^#f"
+CenterThird=""
+...
+```
+
+- Shortcuts use standard AutoHotkey v2 key modifiers:
+  - `^` = <kbd>CTRL</kbd>
+  - `#` = <kbd>WIN</kbd>
+  - `!` = <kbd>ALT</kbd>
+  - `+` = <kbd>SHIFT</kbd>
+- **Disabling Shortcuts**: Leave the value empty (e.g. `CenterThird=""`) to turn off a shortcut. By default, `CenterThird` is disabled so <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>F</kbd> can be used for `FullScreen`.
+- **Aliases**: `FullScreen` can also be configured using the alias `Maximize`.
+
+### Toast Notifications
+
+```ini
+[Toast]
+Show=1
+```
+
+- **`Show`**: Toggle layout change toast notifications on screen (`1` to enable, `0` to disable).
 
 ## Bugs and feature requests
 
@@ -99,9 +140,9 @@ The repository is structured pretty flat to keep things simple and find all nece
 
 ### Commit Convention
 
-Before you create a Pull Request, please check whether your commits comply with the commit conventions used in this repository.
+Before you create a Pull Request, please check whether your commits comply with the commit conventions used in this repository. Strictly adhere to the [Conventional Commits v1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) specification (`GEMINI.md`).
 
-When you create a commit I kindly ask you to follow the convention `category(scope): message` in your commit message while using one of the following categories:
+When you create a commit follow the convention `category(scope): message` in your commit message while using one of the following categories:
 
 - `feat`: all changes that introduce completely new code or new features
 - `fix`: changes that fix a bug (ideally you will additionally reference an issue if present)
@@ -122,9 +163,9 @@ Please follow the following release checklist and convention.
 Use the following release note body for each release.
 
 ```md
-Please refer to [CHANGELOG.md](https://github.com/thesobercoder/polygon/blob/main/CHANGELOG.md) for details.
+Please refer to [CHANGELOG.md](https://github.com/brian-mckim-mpg/polygon/blob/main/CHANGELOG.md) for details.
 ```
 
 ## License
 
-Licensed under the [MIT license](https://github.com/thesobercoder/polygon/blob/main/LICENSE).
+Licensed under the [MIT license](https://github.com/brian-mckim-mpg/polygon/blob/main/LICENSE).
