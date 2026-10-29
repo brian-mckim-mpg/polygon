@@ -30,6 +30,7 @@ global APP_SHORTCUT_CENTERHALF := IniRead(APP_INI_FILE, APP_INI_SECTION_SHORTCUT
 global APP_SHORTCUT_CENTERTWOTHIRD := IniRead(APP_INI_FILE, APP_INI_SECTION_SHORTCUT, "CenterTwoThird", "")
 global APP_SHORTCUT_FIRSTTWOTHIRD := IniRead(APP_INI_FILE, APP_INI_SECTION_SHORTCUT, "FirstTwoThird", "")
 global APP_SHORTCUT_LASTTWOTHIRD := IniRead(APP_INI_FILE, APP_INI_SECTION_SHORTCUT, "LastTwoThird", "")
+global APP_SHORTCUT_FULLSCREEN := IniRead(APP_INI_FILE, APP_INI_SECTION_SHORTCUT, "FullScreen", IniRead(APP_INI_FILE, APP_INI_SECTION_SHORTCUT, "Maximize", ""))
 global APP_SHORTCUT_FIRSTTHIRD := IniRead(APP_INI_FILE, APP_INI_SECTION_SHORTCUT, "FirstThird", "")
 global APP_SHORTCUT_CENTERTHIRD := IniRead(APP_INI_FILE, APP_INI_SECTION_SHORTCUT, "CenterThird", "")
 global APP_SHORTCUT_LASTTHIRD := IniRead(APP_INI_FILE, APP_INI_SECTION_SHORTCUT, "LastThird", "")
@@ -211,6 +212,7 @@ SetConditionalHotkey(APP_SHORTCUT_CENTER, Center)
 SetConditionalHotkey(APP_SHORTCUT_CENTERHD, CenterHD)
 SetConditionalHotkey(APP_SHORTCUT_CENTERHALF, CenterHalf)
 SetConditionalHotkey(APP_SHORTCUT_CENTERTWOTHIRD, CenterTwoThird)
+SetConditionalHotkey(APP_SHORTCUT_FULLSCREEN, FullScreen)
 SetConditionalHotkey(APP_SHORTCUT_FIRSTTHIRD, FirstThird)
 SetConditionalHotkey(APP_SHORTCUT_CENTERTHIRD, CenterThird)
 SetConditionalHotkey(APP_SHORTCUT_FIRSTTWOTHIRD, FirstTwoThird)
@@ -312,6 +314,16 @@ LastTwoThird(*) {
     Toast("Last Two Third", r, l, t, b)
   }
 }
+FullScreen(*) {
+  if (GetWindowRectEx(&hWnd, &x, &y, &w, &h, &ofl, &ofr, &oft, &ofb, &r, &l, &t, &b))
+  {
+    ;-- Set the window position to full screen of the monitor
+    WinMoveEx(l - ofl, t - oft, (r - l) + ofl + ofr, (b - t) + oft + ofb, hWnd)
+    ;-- Show layout toast
+    Toast("Full Screen", r, l, t, b)
+  }
+}
+Maximize(args*) => FullScreen(args*)
 FirstThird(*) {
   if (GetWindowRectEx(&hWnd, &x, &y, &w, &h, &ofl, &ofr, &oft, &ofb, &r, &l, &t, &b))
   {

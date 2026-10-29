@@ -44,8 +44,8 @@ Here are the shortcuts available in Polygon.
 | :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>[</kbd> | Left Half           |                 |
 | :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>]</kbd> | Right Half          |                 |
 | :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>R</kbd> | Center Two Third    |                 |
+| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>F</kbd> | Full Screen         | Feedback Hub    |
 | :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>D</kbd> | First Third         | Virtual Desktop |
-| :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>F</kbd> | Center Third        | Feedback Hub    |
 | :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>G</kbd> | Last Third          |                 |
 | :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>Z</kbd> | Top Left Sixth      |                 |
 | :white_check_mark: | <kbd>CTRL</kbd>+<kbd>WIN</kbd>+<kbd>X</kbd> | Bottom Left Sixth   |                 |
